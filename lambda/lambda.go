@@ -6,12 +6,13 @@ import (
 )
 
 type Lambda struct {
+	processer handler.Processer
 }
 
-func NewLambda() *Lambda {
-	return &Lambda{}
+func NewLambda(processer handler.Processer) *Lambda {
+	return &Lambda{processer: processer}
 }
 
 func (h *Lambda) Start() {
-	lambda.Start(handler.Handle)
+	lambda.Start(h.processer.Process)
 }

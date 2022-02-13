@@ -9,5 +9,6 @@ func Parse(event event.Event) []string {
 	for _, record := range event.Records {
 		messages = append(messages, record.Body)
 	}
+
 	return messages
 }
