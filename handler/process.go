@@ -5,6 +5,7 @@ import (
 	"github.com/maiaaraujo5/lambda-starter/event"
 	"github.com/maiaaraujo5/lambda-starter/event/sns"
 	"github.com/maiaaraujo5/lambda-starter/event/sqs"
+	"log"
 )
 
 type Processer interface {
@@ -41,7 +42,8 @@ func (h *Process) Process(ctx context.Context, event event.Event) error {
 }
 
 func (h *Process) getMessages(event event.Event) []string {
-	if len(event.Resources) == 0 {
+	if len(event.Records) == 0 {
+		log.Println("no records")
 		return nil
 	}
 

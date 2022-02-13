@@ -1,4 +1,4 @@
-package lambda_starter
+package runner
 
 import (
 	"github.com/maiaaraujo5/lambda-starter/handler"
